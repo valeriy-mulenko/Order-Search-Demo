@@ -4,7 +4,6 @@
 
 [![Go Version](https://img.shields.io/badge/Go-1.22+-00ADD8?logo=go)](https://golang.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16+-336791?logo=postgresql)](https://www.postgresql.org/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## 🖼️ Интерфейс
 
