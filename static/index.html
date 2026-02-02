@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Order Service</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Order Service</h1>
+            <p class="subtitle">Демо сервис для поиска заказов</p>
+        </header>
+
+        <div class="content">
+            <div class="card">
+                <h2>🔍 Поиск заказа</h2>
+                <div class="form-group">
+                    <label for="orderId">ID заказа (order_id):</label>
+                    <input type="text" id="orderId" placeholder="Введите order_id, например: test1234567890">
+                </div>
+                <button onclick="getOrder()">Найти заказ</button>
+
+                <div class="test-data">
+                    <h3>Тестовые ID заказов:</h3>
+                    <ul id="testOrders"></ul>
+
+                    <div class="copy-buttons">
+                        <button class="copy-button secondary" onclick="copyTestJson()" id="copyJsonBtn">
+                            📋 Копировать тестовый JSON
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>➕ Создать новый заказ</h2>
+                <div class="form-group">
+                    <label for="orderJson">JSON данные заказа:</label>
+                    <textarea id="orderJson" rows="10" placeholder='{
+  "order_id": "test1234567890",
+  "client_id": 1234567890,
+  "locale": "ru",
+  "delivery": {
+    "name": "Иван Иванов",
+    "phone": "+71234567890",
+    "email": "test@test.ru",
+    "type": "PVZ",
+    "city": "Saint-Petersburg",
+    "address": "Turistskaya street, 10"
+  },
+  "payment": {
+    "transaction_id": "payment_test4566435",
+    "currency": "RUB",
+    "provider": "OzonBank",
+    "amount": 1791.00,
+    "date_pay": 1756207484,
+    "bank": "alpha"
+  },
+  "items": [
+    {
+      "product_id": 1136435021,
+      "name": "T-shirt",
+      "brand": "Ozon Russia",
+      "price": 890.00,
+      "size": "48",
+      "quantity": 1
+    },
+    {
+      "product_id": 1651699088,
+      "name": "Grok the algorithms",
+      "brand": "Peter Publishing House",
+      "price": 901.00,
+      "size": "",
+      "quantity": 1
+    }
+  ],
+  "date_created": "2025-08-26T14:24:44Z"
+}' class="preview-json"></textarea>
+                </div>
+                <button onclick="createOrder()">Создать заказ</button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Загружаем данные...</p>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="result" id="result">
+            <h2>📋 Информация о заказе</h2>
+            <div id="orderDetails"></div>
+        </div>
+
+        <footer>
+            <p>Built with Go, PostgreSQL and vanilla JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
